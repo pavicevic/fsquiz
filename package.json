@@ -1,0 +1,27 @@
+{
+  "type": "module",
+  "name": "fsquiz",
+  "version": "1.0.0",
+  "description": "FS Quiz Trainer: Node.js/Express app (backend + static frontend): loads questions from the public FS Quiz API, grades answers and exports question sheets as PDF.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "formula-student",
+    "quiz",
+    "express",
+    "nodejs"
+  ],
+  "author": "Maksim Pavićević",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.13.2",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "pdfkit": "^0.17.2"
+  }
+}
