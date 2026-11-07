@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>FS Quiz Trainer · Drumska Strela</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+}
+
+.input {
+    padding:7px;
+    border:1px solid #ccc;
+    border-radius:5px;
+}
+
+.btn {
+    background:#004aad;
+    color:white;
+    padding:10px 16px;
+    border:none;
+    border-radius:7px;
+    cursor:pointer;
+}
+
+.btn:hover { background:#00327a; }
+
+.btn-secondary {
+    background:#e8ecff;
+    border:1px solid #adc3ff;
+    color:#00327a;
+    padding:10px 16px;
+    border-radius:7px;
+    cursor:pointer;
+}
+
+.btn-secondary:hover { background:#d6e2ff; }
+
+.question {
+    border:1px solid #ccc;
+    padding:12px;
+    border-radius:7px;
+    margin-bottom:20px;
+}
+
+.result-correct { color:green; font-weight:bold; }
+.result-wrong { color:red; font-weight:bold; }
+</style>
+
+</head>
+<body>
+
+<!-- HEADER -->
+<div style="display:flex; align-items:center; gap:20px; margin-bottom:25px;">
+    <img src="logo.png" alt="Logo" style="height:70px;">
+    <div>
+        <h1 style="margin:0; font-size:32px; color:#004aad;">
+            FS Quiz Trainer
+        </h1>
+        <p style="margin:0; color:#444;">
+            Preparation tool for Formula Student quiz — built for Drumska Strela (Road Arrow)
+        </p>
+    </div>
+</div>
+
+<!-- CONTROL PANEL -->
+<div style="background:#f0f4ff; padding:20px; border-radius:10px; border:1px solid #d0ddff;">
+    <label><b>Event:</b></label>
+    <select id="eventSelect" class="input"></select><br><br>
+
+    <label><b>Year Range:</b></label><br>
+    From: <input id="yearStart" class="input" type="number">
+    To: <input id="yearEnd" class="input" type="number"><br><br>
+
+    <label><b>Class:</b></label>
+    <select id="classSelect" class="input">
+        <option value="">Any</option>
+        <option value="ev">EV</option>
+        <option value="cv">CV</option>
+        <option value="dv">DV</option>
+    </select><br><br>
+
+    <label><b>Number of Questions:</b></label>
+    <input id="countInput" class="input" type="number" value="5"><br><br>
+
+    <button id="generateButton" class="btn" onclick="generateQuiz()">Generate Quiz</button>
+    <button id="pdfQuestionsButton" class="btn-secondary" style="display:none;" onclick="exportQuestionsPDF()">Export Questions PDF</button>
+</div>
+
+<p id="statusBox" style="display:none; margin:15px 0;"></p>
+
+<hr>
+
+<!-- QUIZ RENDER -->
+<div id="quizContainer"></div>
+
+<button id="submitButton" class="btn" style="display:none;" onclick="submitQuiz()">Submit Answers</button>
+
+<div id="resultContainer"></div>
+
+<!-- FOOTER -->
+<div style="margin-top:50px; text-align:center; color:#666; font-size:14px;">
+    Unofficial tool · questions from the public <a href="https://www.fs-quiz.eu" target="_blank" rel="noopener">FS Quiz</a> API · built for Formula Student team Drumska Strela
+</div>
+
+<script src="app.js"></script>
+
+</body>
+</html>
